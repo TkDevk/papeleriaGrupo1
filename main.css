@@ -22,8 +22,7 @@ html{
 
 body > * {
     border: 2px black solid;
-    width: 100%;
-    text-align: center;
+    
 }
 
 /*Declaro colores (desde el :root)*/
