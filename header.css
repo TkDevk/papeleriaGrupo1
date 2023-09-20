@@ -1,3 +1,27 @@
 .container__header{
+    display: flex;
+    flex-direction: row;
+    background-color: #46464e;
+    color: #fff;
+}
+
+.container__header > h1, figure{
+    margin-top: 20px;
     
 }
+
+.container__header > figure > img{
+    height: 30px;
+    width: 30px;
+    margin-left: 70vw;
+    cursor: pointer;
+    margin-top:10px;
+    filter: invert(98%) sepia(0%) saturate(0%) hue-rotate(41deg) brightness(103%) contrast(104%);
+    transform: scaleX(-1);
+}
+
+.container__header > h1{
+    margin-left: 40px;
+}
+
+
