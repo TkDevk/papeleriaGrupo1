@@ -108,19 +108,13 @@ html {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/*Responsive, por ahora pc*/
-/*
-@media (min-width: 900px){
-    #container{
-        grid-template:
-        "header   header"        100px
-        "banner   banner"       200px
-        "main     main"          auto
-        "footer   footer"        100px/
-      
-         200px    auto /*dos columnas
-
-        ;
-    }
+#opciones {
+    margin-top: -30px;
+    padding-top: -30px;
+    padding-left: 80px;
+    padding-right: 150px;
+    display: flex;
+    width: 1025px;
+    height: 350px;
+    margin-bottom: 100px;
 }
-*/

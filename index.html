@@ -25,7 +25,7 @@
     <ul id="carro-producto">
         <!-- Los productos seleccionados se agregarán aquí -->
     </ul>
-   
+
       <!--Banner section-->
     <div class="banner">
         <div class="banner-container">
@@ -122,35 +122,40 @@
 
 
         </article>
-
+    <section class="cartShow">
+        <div class="carro">
+            <h2>CARRITO DE COMPRAS</h2>
+            <h3>Detalle de la compra</h3>
+            
+            <button id="confirmarCompra">Confirmar Compra</button>
+            <button id="cancelarCompra">Cancelar Compra</button>
+            <div id="confirmacionCompra" class="modal">
+                <div class="modal-content">
+                    <p>Compra confirmada. Gracias por tu compra.</p>
+                    <button id="cerrarConfirmacion">Cerrar</button>
+                </div>  
+            </div>
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <p>¿Estás seguro de que deseas cancelar la compra?</p>
+                    <button id="confirmarCancelacion">Sí</button>
+                    <button id="cerrarModal">No</button>
+                </div>
+            </div>
+            <div id="cancelacionModal" class="modal">
+                <div class="modal-content">
+                    <p>La compra se ha cancelado.</p>
+                    <button id="cerrarCancelacion">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </section> 
 
     </main>
 
 <!--Mostrar resultado carrito -->
 
-    <section class="cartShow">
-      
-        <p>Total: $<span id="carro-total">0</span></p>
-        <button id="confirmarCompra">Confirmar Compra</button>
-        <button id="cancelarCompra">Cancelar Compra</button>
-        <div id="confirmacionCompra" class="modal">
-            <div class="modal-content">
-                <p>Compra confirmada. Gracias por tu compra.</p>
-                <button id="cerrarConfirmacion">Cerrar</button>
-            </div>  
-        </div>
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <p>¿Estás seguro de que deseas cancelar la compra?</p>
-                <button id="confirmarCancelacion">Sí</button>
-                <button id="cerrarModal">No</button>
-            </div>
-        </div>
-        <div id="cancelacionModal" class="modal">
-            <div class="modal-content">
-                <p>La compra se ha cancelado.</p>
-                <button id="cerrarCancelacion">Cerrar</button>
-    </section> 
+
     <script>
 
 const addToCartButtons = document.querySelectorAll('.add');
@@ -250,7 +255,7 @@ function updateCart() {
     </script>
 
 
-    </script>
+    
 
 
 </body>
