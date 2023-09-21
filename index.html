@@ -18,13 +18,15 @@
             <img src="/img/cartShopping.svg" alt="carrito">
             <figure><span id="contador"> 0 </span></figure>
         </picture>
+        <p>Total: $<span id="carro-total">0</span></p>
         
 
     </header>
     <ul id="carro-producto">
         <!-- Los productos seleccionados se agregarán aquí -->
     </ul>
-    <p>Total: $<span id="carro-total">0</span></p>
+   
+      <!--Banner section-->
     <div class="banner">
         <div class="banner-container">
             <h1>Papeleria meteoro </h1>
@@ -137,10 +139,9 @@
             button.addEventListener('click', () => {
                 const product = button.getAttribute('data-product');
                 const price = parseFloat(button.getAttribute('data-price'));
-
+                
                 cart.push({ product, price });
                 total += price;
-
                 updateCart();
             });
         });
