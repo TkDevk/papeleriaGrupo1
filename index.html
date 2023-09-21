@@ -4,66 +4,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Css Modular</title>
+    <title>Papeleria Meteoro</title>
     <link rel="stylesheet" href="/main.css">
+
 </head>
 
 <body id="container">
-    <header class="container__header">Header
+    <header class="container__header">
+        <h1>Papeleria meteoro</h1>
+
+        <picture >
+
+            <img src="/img/cartShopping.svg" alt="carrito">
+            <figure><span id="contador"> 0 </span></figure>
+        </picture>
+        
 
     </header>
-    <nav class="navBar">Navbar left</nav>
+    <ul id="carro-producto">
+        <!-- Los productos seleccionados se agregarán aquí -->
+    </ul>
+    <p>Total: $<span id="carro-total">0</span></p>
+      <!--Banner section-->
+    <div class="banner">
+        <div class="banner-container">
+            <h1>Papeleria meteoro </h1>
+            <p>Servicio, calidad y compromiso</p>
+        </div>
+    </div>
+    <h2>Productos de papelería</h2>
     <main class="mainContent">
 
-        <h2 class="main"> Lleve lleve su resma </h2>
+
         <article class="card">
             <picture>
                 <figure>
-                    <img src="/img/person.png">
+                    <img
+                        src="https://static.wixstatic.com/media/d5f7c0_1e183bae815a4d42ba31e612d5df47ae~mv2.png/v1/fit/w_500,h_500,q_90/file.png">
                 </figure>
-                <img>
+
             </picture>
-            <h3>Resma</h3>
-            <p> $200</p>
-            <footer></footer>
+            <h3>Estuche Micropunta<br>
+                X12 Pz Pelikan</h3>
+            <p> $18.500</p><br>
+            <button class="add" data-product="Producto 1" data-price="20000">Agregar al carrito</button>
+
+
 
         </article>
         <article class="card">
             <picture>
                 <figure>
-                    <img src="/img/person.png">
+                    <img
+                        src="https://static.wixstatic.com/media/d5f7c0_0905abb80d6f4f58a130ad04a9c978b8~mv2.png/v1/fill/w_500,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/d5f7c0_0905abb80d6f4f58a130ad04a9c978b8~mv2.png">
                 </figure>
-                <img>
             </picture>
-            <h3>Resma</h3>
-            <p> $200</p>
+            <h3>Estuche Resaltador<br>2 X5 Pz Pelikan Mark</h3>
+            <p>$11.500</p>
+            <button class="add" data-product="Producto 2" data-price="5700">Agregar al carrito</button>
+
+
 
         </article>
         <article class="card">
             <picture>
                 <figure>
-                    <img src="/img/person.png">
+                    <img src="https://www.suescun.com.co/wp-content/uploads/2021/06/10113.jpg">
                 </figure>
-                <img>
             </picture>
-            <h3>Resma</h3>
-            <p> $200</p>
+            <h3>Colbon liquido sipega<br>20 gr</h3>
+            <p> $1.800</p>
+            <button class="add" data-product="Producto 3" data-price="15000">Agregar al carrito</button>
+
+
 
         </article>
         <article class="card">
             <picture>
                 <figure>
-                    <img src="/img/person.png">
+                    <img
+                        src="https://pepeganga.vtexassets.com/arquivos/ids/823849/102492149-1.png?v=638011089727400000">
                 </figure>
-                <img>
             </picture>
-            <h3>Resma</h3>
-            <p> $200</p>
-            <footer></footer>
+            <h3>Set 4 Micropuntas</h3>
+            <p>$ 5.670</p>
+            <button class="add" data-product="Producto 4" data-price="15000">Agregar al carrito</button>
+
+
+
+        </article>
+        <article class="card">
+            <picture>
+                <figure>
+                    <img
+                        src="https://pepeganga.vtexassets.com/arquivos/ids/823839/102491517-1.png?v=638011075252100000">
+                </figure>
+            </picture>
+            <h3>Caja de 12 Lápices de Colores</h3>
+            <p> $10.200</p>
+
+            <button class="add" data-product="Producto 5" data-price="15000">Agregar al carrito</button>
+
+
+
+        </article>
+        <article class="card">
+            <picture>
+                <figure>
+                    <img src="https://www.suescun.com.co/wp-content/uploads/2021/06/resaltadores-pelikan-mark-2.png">
+                </figure>
+            </picture>
+            <h3>Resaltador pelikan amarillo
+            </h3>
+            <p> $5.000</p>
+
+            <button class="add" data-product="Producto 6" data-price="15000">Agregar al carrito</button>
+
+
 
         </article>
     </main>
-    <footer class="mainFooter"> Footer</footer>
+
+    <script>
+
+        const addToCartButtons = document.querySelectorAll('.add');
+        const cartItems = document.getElementById('carro-producto');
+        const cartTotal = document.getElementById('carro-total');
+
+        let cart = [];
+        let total = 0;
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const product = button.getAttribute('data-product');
+                const price = parseFloat(button.getAttribute('data-price'));
+                
+                cart.push({ product, price });
+                total += price;
+                updateCart();
+            });
+        });
+
+        function updateCart() {
+            cartItems.innerHTML = '';
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${item.product} - $${item.price}`;
+
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Quitar';
+                removeButton.classList.add('remover');
+                removeButton.addEventListener('click', () => {
+                    cart.splice(index, 1);
+                    total -= item.price;
+                    updateCart();
+                });
+
+                li.appendChild(removeButton);
+                cartItems.appendChild(li);
+            });
+
+            cartTotal.textContent = total.toFixed(2);
+        }
+    </script>
+
+
+    </script>
+
 
 </body>
 

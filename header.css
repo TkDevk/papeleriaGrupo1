@@ -1,3 +1,60 @@
 .container__header{
+    display: flex;
+    flex-direction: row;
+    background-color: #46464e;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+
+}
+
+
+
+.container__header > picture {
+    height: 30px;
+    width: 30px;
+    margin-left: 60%;
+    display: flex;
+    margin-top:40px;
+
+}
+
+.container__header > picture > img{
+    filter: invert(98%) sepia(0%) saturate(0%) hue-rotate(41deg) brightness(103%) contrast(104%);
+    transform: scaleX(-1);
+    cursor: pointer;
+}
+
+.container__header > picture > figure{
+    width: auto;
+    top:0;
+
+}
+
+.container__header > h1{
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 10%;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.container__header > li{
+    display: inline-block;
     
 }
+
+    
+
+#contador{
+    margin-top: 10px;
+    background-color: rgba(255, 0, 0, 0.604);
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align:center;
+    margin-top: -50vh;
+    
+}
+
